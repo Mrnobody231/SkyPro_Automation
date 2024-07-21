@@ -1,0 +1,26 @@
+1. CAPITALIZE
+
+Should consider about making second String also an upper case, because it can be as an example "surname" = "Edgar A" or name of two String = "Sant Paulo"   
+
+
+2. CONTAINS
+
+Would be usefull to have  such an apportunity also with integers. We could define from integer what gender is or a birth of the person
+
+3. TO_LIST
+
+According to the script it should take as a defaul comma(,) and change it, if it is another delimeter. Testing failed.
+
+
+4. STARTS_WITH  AND END_WITH
+
+Would be nice to find not only one symbol but as many as you write symbols example word "computer" to find "ter" and "com"
+
+
+5. IS_EMPTY 
+
+When we write quotes and put a space " " I cant consider it is an emptyness. We define it as a symbol. I think it doesnt suppose to be like this.
+
+6. LIST_TO_STRING
+
+in the desciption we have that joiner by default should be comma (,) as a result. When we run a test it is showing a mistake. Example in the test ["Lesson", "1"], "","Lesson, 1"
