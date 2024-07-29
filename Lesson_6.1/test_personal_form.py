@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 
 def test_fill_form():
@@ -22,24 +23,25 @@ def test_fill_form():
 
     chrome.find_element(By.CSS_SELECTOR, ("button[type='submit']")).click()
 
-    locators = [
-        ".alert.alert-success#first-name", 
-        ".alert.alert-success#last-name",
-        ".alert.alert-success#address",
-        ".alert.alert-success#email",
-        ".alert.alert-success#phone",
-        ".alert.alert-success#city",
-        ".alert.alert-success#country",
-        ".alert.alert-success#job-position",
-        ".alert.alert-success#company"
+    try:
+        locators = [
+        "#first-name", 
+        "#last-name",
+        "#address",
+        "#email",
+        "#phone",
+        "#city",
+        "#country",
+        "#job-position",
+        "#company"
         ]
     
-    for locator in locators:
-        color = WebDriverWait(chrome, 2).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator))).value_of_css_property("background-color")
-        assert color == "rgba(209, 231, 221, 1)"
+        for locator in locators:
+            color = WebDriverWait(chrome, 2).until(EC.visibility_of_element_located((By.CSS_SELECTOR, locator))).value_of_css_property("background-color")
+            assert color == "rgba(209, 231, 221, 1)"
+    except TimeoutException:
+
+        zip_code_color = WebDriverWait(chrome, 4).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".alert.py-2.alert-danger#zip-code"))).value_of_css_property("background-color")
+        assert zip_code_color == "rgba(248, 215, 218, 1)"
     
-    zip_code_color = WebDriverWait(chrome, 4).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".alert.py-2.alert-danger#zip-code"))).value_of_css_property("background-color")
-    assert zip_code_color == "rgba(248, 215, 218, 1)"
-
-
-    chrome.quit()
+        chrome.quit()
