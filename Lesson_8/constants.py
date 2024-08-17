@@ -4,4 +4,3 @@ AUTHORIZATION = {
     "username": "stella",
     "password": "sun-fairy"
 }
-
