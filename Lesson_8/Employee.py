@@ -46,7 +46,8 @@ class Employee:
 
     def get_employee_by_id(self):
         employee = requests.get(
-            f"{self.url}/employee/{self.add_employee}")
+            f"{self.url}/employee/{self.add_employee("New Company", "Company", "Com",
+                                                     "email@gmail.com", "123456789", True)}")
         return employee.json()
     
     def change_employee(
@@ -63,5 +64,7 @@ class Employee:
         "isActive": is_active
         }
         response = requests.patch(
-            f"{self.url}/employee/{self.add_employee}", headers=my_header, json=body)
+            f"{self.url}/employee/{self.add_employee("New Company",
+                                                     "Company", "Com", "email@gmail.com",
+                                                     "123456789", True)}", headers=my_header, json=body)
         return response.json()

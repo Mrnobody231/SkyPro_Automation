@@ -27,6 +27,6 @@ def test_get_employee():
     assert response["lastName"] == "Company"
 
 def test_change_employee():
-     response = employee.change_employee("New Name", "email.@gmail.com", True)
+     response = employee.change_employee("New Last Name", "new.email@gmail.com", True)
      assert response is not None
-     assert response["lastName"] == "New Name"
+     assert response["email"] == "new.email@gmail.com"
