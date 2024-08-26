@@ -1,6 +1,6 @@
 import requests
 
-from SkyPro_Automation.Lesson_8.constants import AUTHORIZATION
+from SkyPro_Automation.Lesson_9.constants import AUTHORIZATION
 
 
 class Employee:
@@ -14,12 +14,13 @@ class Employee:
 
     def create_company(self, name, description=None):
         company = {
-            'name' : name,
-            'description' : description
+            'name': name,
+            'description': description
         }
         my_header = {}
         my_header['x-client-token'] = self.authorization(AUTHORIZATION)
-        my_company = requests.post(self.url + '/company', headers=my_header, json=company)
+        my_company = requests.post(self.url + '/company', headers=my_header,
+                                   json=company)
         return my_company.json()
 
     def get_company_id(self):
@@ -28,9 +29,9 @@ class Employee:
         )
         return company.json()[0]["id"]
     
-    def get_employee_list(self):
+    def get_employee_list(self, company_id):
         company = {
-            "company": self.get_company_id()
+            "company": company_id
         }
         employee = requests.get(self.url + "/employee", params=company)
         return employee.json()
@@ -54,14 +55,12 @@ class Employee:
             self.url + "/employee", headers=my_header, json=employee_data)
         return employee_id.json()["id"]
 
-    def get_employee_by_id(self):
-        employee = requests.get(
-            f"{self.url}/employee/{self.add_employee("New Company", "Company", "Com",
-                                                     "email@gmail.com", "123456789", True)}")
-        return employee.json()
+    def get_employee_by_id(self, employee_id):
+        resp = requests.get(self.url + '/employee/' + str(employee_id))
+        return resp.json()
     
     def change_employee(
-            self, last_name: str, email: str,
+            self, employee_id: int, last_name: str, email: str,
             is_active: bool, phone=None, url=None
               ):
         my_header = {}
@@ -73,8 +72,6 @@ class Employee:
         "phone": phone,
         "isActive": is_active
         }
-        response = requests.patch(
-            f"{self.url}/employee/{self.add_employee("New Company",
-                                                     "Company", "Com", "email@gmail.com",
-                                                     "123456789", True)}", headers=my_header, json=body)
+        response = requests.patch(self.url + '/employee/' + str(employee_id),
+                                  headers=my_header, json=body)
         return response.json()
