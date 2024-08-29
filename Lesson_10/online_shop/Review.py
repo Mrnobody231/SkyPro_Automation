@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 import allure
 
 
-@allure.epic("Shopping Review")
 class Review:
     def __init__(self, driver):
         self.chrome = driver

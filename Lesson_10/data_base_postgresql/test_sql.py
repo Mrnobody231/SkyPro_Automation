@@ -1,7 +1,7 @@
 import allure
-from SkyPro_Automation.Lesson_10.data_base_postgresql.DataBase import DataBase
-from SkyPro_Automation.Lesson_10.data_base_postgresql.Employee import Employee
-from SkyPro_Automation.Lesson_10.data_base_postgresql.constants import *
+from DataBase import DataBase
+from Employee import Employee
+from constants import *
 
 api = Employee(X_CLIENTS_URL)
 db = DataBase(DB_CONNECTION)

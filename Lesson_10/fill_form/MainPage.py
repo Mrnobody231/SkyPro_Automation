@@ -5,7 +5,6 @@ from selenium.common.exceptions import TimeoutException
 import allure
 
 
-@allure.epic("Fill the form")
 class MainPage:
     def __init__(self, driver):
         self.chrome = driver

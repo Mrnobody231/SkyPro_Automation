@@ -1,10 +1,9 @@
 import requests
 import allure
 
-from SkyPro_Automation.Lesson_10.data_base_postgresql.constants import AUTHORIZATION
+from constants import AUTHORIZATION
 
 
-@allure.epic("Company and Employee API scripts")
 class Employee:
     def __init__(self, url: str):
         self.url = url

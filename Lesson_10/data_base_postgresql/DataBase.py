@@ -2,7 +2,6 @@ from sqlalchemy import create_engine, text, inspect
 import allure
 
 
-@allure.epic("Company and Employee data base scripts")
 class DataBase:
     def __init__(self, engine):
         self.engine = create_engine(engine)

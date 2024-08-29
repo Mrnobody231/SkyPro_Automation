@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import allure
 
 
-@allure.epic("Add clothes")
 class MainPage:
     def __init__(self,driver):
         self.chrome = driver

@@ -3,6 +3,7 @@ import allure
 
 from .MainCalculator import MainCalculator
 
+@allure.epic("Calculator")
 @allure.severity("Critical")
 @allure.title("Counting")
 @allure.description("By using calculator count all integers together")

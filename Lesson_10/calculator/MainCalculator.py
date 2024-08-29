@@ -5,8 +5,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 import allure
 
 
-@allure.severity("Critical")
-@allure.epic("Calculator")
 class MainCalculator:
     def __init__(self, driver):
         self.chrome = driver

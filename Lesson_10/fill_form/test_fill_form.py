@@ -3,6 +3,7 @@ import allure
 
 from .MainPage import MainPage
 
+@allure.epic("Fill the form")
 @allure.severity("Critical")
 @allure.title("Get color by css_attribute")
 @allure.description("Check fields color when they are empty and not")

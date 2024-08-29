@@ -4,7 +4,7 @@ import allure
 
 from SkyPro_Automation.Lesson_5.chrome_website.Форма_авторизации import username
 
-@allure.epic("LogIn")
+
 class Login:
     def __init__(self, driver):
         self.chrome = driver
